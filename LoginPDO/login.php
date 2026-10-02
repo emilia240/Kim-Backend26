@@ -33,6 +33,7 @@
 			
 			if ($found_user) {
 				// Check if the password is correct
+				//this is the only part that logs u in
 				if (password_verify($password, $found_user['pass'])) {
 					// Username/password authenticated
 					$_SESSION['user_id'] = $found_user['id'];
@@ -78,3 +79,5 @@ Password:
 <?php
 if (isset($connection)){$connection = null;}
 ?>
+
+//difference between login and logout: one reads and compares credentials to log in, the other clears the session to log out

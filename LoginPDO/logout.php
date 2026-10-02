@@ -7,7 +7,7 @@
 		session_start();
 		
 		// 2. Unset all the session variables
-		$_SESSION = array();
+		$_SESSION = array(); //careful about this-it should not be empty!
 		
 		// 3. Destroy the session cookie
 		if(isset($_COOKIE[session_name()])) {

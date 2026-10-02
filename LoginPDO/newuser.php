@@ -1,7 +1,7 @@
 <?php require_once("includes/session.php"); ?>
 <?php require_once("includes/connection.php"); ?>
 <?php require_once("includes/functions.php"); ?>
-<?php //confirm_logged_in(); ?>
+<?php confirm_logged_in(); ?>
 
 <html>
 <head>
@@ -23,7 +23,8 @@ if (isset($_POST['submit'])) { // Form has been submitted.
     try {
         // Prepare the SQL query to insert user
         $query = "INSERT INTO users (user, pass) VALUES (:username, :hashed_password)";
-        $stmt = $connection->prepare($query);
+        $stmt = $connection->prepare($query); //ALWAYS prepare the SQL statement to prevent SQL injection
+//stmt is the prepared statement object
 
         // Bind parameters
         $stmt->bindParam(':username', $username);
